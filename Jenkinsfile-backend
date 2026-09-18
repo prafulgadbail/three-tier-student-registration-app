@@ -1,0 +1,92 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_REGION     = 'us-east-1'
+        AWS_ACCOUNT_ID = '261945560801'
+        ECR_REGISTRY   = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+
+        ECR_REPOSITORY = 'student-app/backend'
+        IMAGE_TAG      = "${BUILD_NUMBER}"
+
+        EKS_CLUSTER = 'prod-cluster'
+        NAMESPACE   = 'student-app'
+    }
+
+    stages {
+
+        stage('Build') {
+            steps {
+                dir('backend') {
+                    sh '''
+                        mvn clean package -DskipTests                
+                    '''
+                }
+            }
+        }
+
+        stage('SonarQube') {
+            steps {
+                dir('backend') {
+                    withSonarQubeEnv('SonarQube') {
+                        sh '''
+                            mvn sonar:sonar \
+                              -Dsonar.projectKey=student-registration-backend \
+                              -Dsonar.projectName=student-registration-backend
+                        '''
+                    }
+                }
+            }
+        }
+
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+
+        stage('Docker Build & Push') {
+            steps {
+                sh '''
+                    aws ecr get-login-password --region "$AWS_REGION" |
+                    docker login --username AWS --password-stdin "$ECR_REGISTRY"
+
+                    docker build \
+                      -t "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" \
+                      backend/
+
+                    docker push \
+                      "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+                '''
+            }
+        }
+
+        stage('Deploy to EKS') {
+            steps {
+                sh '''
+                    aws eks update-kubeconfig \
+                      --region "$AWS_REGION" \
+                      --name "$EKS_CLUSTER"
+                    
+                    kubectl apply -f k8s/
+
+                    kubectl set image deployment/backend \
+                      backend="$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" \
+                      -n "$NAMESPACE"
+                '''
+            }
+        }
+
+        stage('Verify') {
+            steps {
+                sh '''
+                    kubectl rollout status deployment/backend \
+                      -n "$NAMESPACE" \
+                      --timeout=5m
+                '''
+            }
+        }
+    }
+}

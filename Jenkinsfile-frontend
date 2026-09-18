@@ -1,0 +1,48 @@
+pipeline {
+    agent {
+        label 'build-agent'
+    }
+
+    environment {
+        AWS_REGION = 'us-east-1'
+
+        FRONTEND_BUCKET = 'student-app-frontend-s3-bucket'
+        CLOUDFRONT_DISTRIBUTION_ID = 'E3CYJEKSPYMARQ'
+    }
+
+    stages {
+
+        stage('Build') {
+            steps {
+                dir('frontend') {
+                    sh '''
+                        npm ci
+                        npm run build
+                    '''
+                }
+            }
+        }
+
+        stage('Deploy to S3') {
+            steps {
+                dir('frontend') {
+                    sh '''
+                        aws s3 sync dist/ \
+                          "s3://$FRONTEND_BUCKET" \
+                          --delete
+                    '''
+                }
+            }
+        }
+
+        stage('CloudFront Invalidation') {
+            steps {
+                sh '''
+                    aws cloudfront create-invalidation \
+                      --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" \
+                      --paths "/*"
+                '''
+            }
+        }
+    }
+}
