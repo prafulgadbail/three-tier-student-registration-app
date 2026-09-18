@@ -1,339 +1,177 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" style="background:#090d16; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" style="background:#090d16; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
   <defs>
-    <!-- Ultra Sharp Glow Effects -->
-    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-    <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-    <filter id="glow-amber" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-    <filter id="glow-pink" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
+    <!-- Filters -->
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-amber" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-pink" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 
-    <!-- Vector Icon Definitions -->
-    <g id="icon-s3">
-      <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.8l6.9 3.5-6.9 3.4-6.9-3.4L12 4.8zM4 9.3l7 3.5v6.9l-7-3.5V9.3zm16 6.9l-7 3.5v-6.9l7-3.5v6.9z" fill="#00ff87"/>
-    </g>
-    <g id="icon-cloudfront">
-      <circle cx="12" cy="12" r="9" fill="none" stroke="#00ff87" stroke-width="2"/>
-      <path d="M12 3a9 9 0 0 0 0 18M3 12h18M5 7h14M5 17h14" fill="none" stroke="#00ff87" stroke-width="1.5"/>
-    </g>
-    <g id="icon-route53">
-      <path d="M4 4h16v16H4z" fill="none" stroke="#00ff87" stroke-width="2"/>
-      <path d="M8 12l3 3 5-6" fill="none" stroke="#00ff87" stroke-width="2" stroke-linecap="round"/>
-    </g>
-    <g id="icon-k8s">
-      <path d="M12 2l8.7 5v10L12 22l-8.7-5V7L12 2z" fill="none" stroke="#a855f7" stroke-width="2"/>
-      <circle cx="12" cy="12" r="3" fill="#a855f7"/>
-    </g>
-    <g id="icon-rds">
-      <ellipse cx="12" cy="6" rx="8" ry="3" fill="none" stroke="#f59e0b" stroke-width="2"/>
-      <path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" fill="none" stroke="#f59e0b" stroke-width="2"/>
-    </g>
-    <g id="icon-secrets">
-      <rect x="5" y="10" width="14" height="10" rx="2" fill="none" stroke="#f59e0b" stroke-width="2"/>
-      <path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="#f59e0b" stroke-width="2"/>
-      <circle cx="12" cy="15" r="1.5" fill="#f59e0b"/>
-    </g>
-    <g id="icon-monitor">
-      <path d="M3 3v18h18" fill="none" stroke="#ec4899" stroke-width="2"/>
-      <path d="M7 14l4-4 4 4 5-6" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round"/>
-    </g>
+    <!-- Vector Icons -->
+    <g id="icon-s3"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.8l6.9 3.5-6.9 3.4-6.9-3.4L12 4.8zM4 9.3l7 3.5v6.9l-7-3.5V9.3zm16 6.9l-7 3.5v-6.9l7-3.5v6.9z" fill="#00ff87"/></g>
+    <g id="icon-cloudfront"><circle cx="12" cy="12" r="9" fill="none" stroke="#00ff87" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18M5 7h14M5 17h14" fill="none" stroke="#00ff87" stroke-width="1.5"/></g>
+    <g id="icon-route53"><path d="M4 4h16v16H4z" fill="none" stroke="#00ff87" stroke-width="2"/><path d="M8 12l3 3 5-6" fill="none" stroke="#00ff87" stroke-width="2" stroke-linecap="round"/></g>
+    <g id="icon-k8s"><path d="M12 2l8.7 5v10L12 22l-8.7-5V7L12 2z" fill="none" stroke="#a855f7" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="#a855f7"/></g>
+    <g id="icon-rds"><ellipse cx="12" cy="6" rx="8" ry="3" fill="none" stroke="#f59e0b" stroke-width="2"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" fill="none" stroke="#f59e0b" stroke-width="2"/></g>
+    <g id="icon-secrets"><rect x="5" y="10" width="14" height="10" rx="2" fill="none" stroke="#f59e0b" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="#f59e0b" stroke-width="2"/><circle cx="12" cy="15" r="1.5" fill="#f59e0b"/></g>
+    <g id="icon-monitor"><path d="M3 3v18h18" fill="none" stroke="#ec4899" stroke-width="2"/><path d="M7 14l4-4 4 4 5-6" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round"/></g>
 
-    <!-- Sharp Arrow Markers -->
-    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00f2fe" />
-    </marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00ff87" />
-    </marker>
-    <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a855f7" />
-    </marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b" />
-    </marker>
-    <marker id="arrow-pink" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ec4899" />
-    </marker>
+    <!-- Arrow Markers -->
+    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00f2fe"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00ff87"/></marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a855f7"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-pink" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ec4899"/></marker>
   </defs>
 
-  <!-- TITLE HEADER -->
-  <text x="960" y="40" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800" letter-spacing="1.5">AWS + AMAZON EKS PRODUCTION ARCHITECTURE</text>
-  <text x="960" y="65" text-anchor="middle" fill="#6b7280" font-size="13" font-weight="600">Student Registration Application — Production Tier Diagram</text>
+  <!-- TITLE -->
+  <text x="960" y="45" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800" letter-spacing="1.5">AWS + AMAZON EKS PRODUCTION ARCHITECTURE</text>
+  <text x="960" y="70" text-anchor="middle" fill="#6b7280" font-size="13" font-weight="600">Single Domain CloudFront + Shared ALB Path-Based Routing</text>
 
-  <!-- 1. EXTERNAL USER / BROWSER -->
+  <!-- USER / BROWSER -->
   <g transform="translate(40, 160)">
-    <rect x="0" y="0" width="180" height="270" rx="10" fill="#111827" stroke="#00f2fe" stroke-width="2" filter="url(#glow-cyan)"/>
-    <text x="90" y="30" text-anchor="middle" fill="#00f2fe" font-size="13" font-weight="800">USER / BROWSER</text>
-    
-    <rect x="15" y="55" width="150" height="85" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1.5"/>
-    <text x="90" y="85" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Web Client</text>
-    <text x="90" y="105" text-anchor="middle" fill="#9ca3af" font-size="10">Static Assets</text>
-
-    <rect x="15" y="160" width="150" height="85" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1.5"/>
-    <text x="90" y="190" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Frontend App</text>
-    <text x="90" y="210" text-anchor="middle" fill="#00f2fe" font-size="10" font-weight="600">HTTPS API Calls</text>
+    <rect x="0" y="0" width="220" height="90" rx="10" fill="#111827" stroke="#00f2fe" stroke-width="2" filter="url(#glow-cyan)"/>
+    <text x="110" y="32" text-anchor="middle" fill="#00f2fe" font-size="13" font-weight="800">USER / BROWSER</text>
+    <rect x="12" y="45" width="196" height="32" rx="4" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+    <text x="110" y="66" text-anchor="middle" fill="#00ff87" font-size="10" font-weight="700">student-app.prafulgadbail.online</text>
   </g>
 
-  <!-- AWS CLOUD BOUNDARY -->
-  <rect x="270" y="90" width="1610" height="960" rx="14" fill="#0c111d" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8,6"/>
-  <text x="295" y="120" fill="#f59e0b" font-size="15" font-weight="800" letter-spacing="1">AWS CLOUD BOUNDARY</text>
+  <!-- AWS BOUNDARY -->
+  <rect x="300" y="95" width="1580" height="955" rx="14" fill="#0c111d" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8,6"/>
+  <text x="325" y="125" fill="#f59e0b" font-size="15" font-weight="800">AWS CLOUD BOUNDARY</text>
 
-  <!-- LAYER 1: FRONTEND LAYER -->
-  <rect x="300" y="140" width="1550" height="150" rx="10" fill="#111827" stroke="#00ff87" stroke-width="1.5" filter="url(#glow-green)"/>
-  <text x="325" y="168" fill="#00ff87" font-size="13" font-weight="800">FRONTEND LAYER (S3 + CloudFront)</text>
+  <!-- FRONTEND LAYER -->
+  <rect x="330" y="145" width="1520" height="120" rx="10" fill="#111827" stroke="#00ff87" stroke-width="1.5" filter="url(#glow-green)"/>
+  <text x="355" y="170" fill="#00ff87" font-size="13" font-weight="800">FRONTEND &amp; EDGE ROUTING LAYER</text>
 
-  <g transform="translate(340, 185)">
-    <rect x="0" y="0" width="220" height="80" rx="6" fill="#1f2937" stroke="#00ff87" stroke-width="1.5"/>
-    <use href="#icon-route53" x="15" y="15" transform="scale(1.2)"/>
-    <text x="130" y="38" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Amazon Route 53</text>
-    <text x="130" y="56" text-anchor="middle" fill="#9ca3af" font-size="10">DNS Routing</text>
+  <g transform="translate(370, 175)"><rect x="0" y="0" width="230" height="70" rx="6" fill="#1f2937" stroke="#00ff87" stroke-width="1.5"/><use href="#icon-route53" x="12" y="10" transform="scale(1.2)"/><text x="135" y="32" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Route 53 DNS</text><text x="135" y="50" text-anchor="middle" fill="#9ca3af" font-size="10">Alias Record</text></g>
+  <g transform="translate(670, 175)"><rect x="0" y="0" width="300" height="70" rx="6" fill="#064e3b" stroke="#00ff87" stroke-width="2"/><use href="#icon-cloudfront" x="12" y="10" transform="scale(1.2)"/><text x="170" y="30" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">CloudFront Distribution</text><text x="170" y="48" text-anchor="middle" fill="#00ff87" font-size="10">Behaviors: /* (S3) | /api/* (ALB)</text></g>
+  <g transform="translate(1040, 175)"><rect x="0" y="0" width="240" height="70" rx="6" fill="#1f2937" stroke="#00ff87" stroke-width="1.5"/><use href="#icon-s3" x="12" y="10" transform="scale(1.2)"/><text x="140" y="32" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Amazon S3 Bucket</text><text x="140" y="50" text-anchor="middle" fill="#9ca3af" font-size="10">Static Frontend (dist/)</text></g>
+  <g transform="translate(1350, 175)"><rect x="0" y="0" width="270" height="70" rx="6" fill="#1f2937" stroke="#00ff87" stroke-width="2"/><text x="135" y="32" text-anchor="middle" fill="#00ff87" font-size="13" font-weight="800">Frontend React App</text><text x="135" y="50" text-anchor="middle" fill="#9ca3af" font-size="10">Static Web UI</text></g>
+
+  <!-- SHARED LOAD BALANCER LAYER -->
+  <rect x="330" y="290" width="1520" height="85" rx="10" fill="#111827" stroke="#00f2fe" stroke-width="1.5" filter="url(#glow-cyan)"/>
+  <text x="355" y="312" fill="#00f2fe" font-size="13" font-weight="800">APPLICATION LOAD BALANCING LAYER (AWS ALB)</text>
+  <g transform="translate(580, 318)"><rect x="0" y="0" width="580" height="46" rx="6" fill="#1f2937" stroke="#00f2fe" stroke-width="2"/><text x="290" y="22" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Internet-Facing Application Load Balancer (ALB)</text><text x="290" y="38" text-anchor="middle" fill="#00f2fe" font-size="10">Path Rule: /api/* → Forward to EKS Backend Service</text></g>
+
+  <!-- SECRETS MANAGEMENT -->
+  <rect x="330" y="400" width="310" height="420" rx="10" fill="#111827" stroke="#f59e0b" stroke-width="2" filter="url(#glow-amber)"/>
+  <text x="485" y="425" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="800">SECRETS MANAGEMENT</text>
+  <g transform="translate(355, 450)"><rect x="0" y="0" width="260" height="65" rx="6" fill="#1f2937" stroke="#f59e0b" stroke-width="1.5"/><use href="#icon-secrets" x="12" y="10" transform="scale(1.2)"/><text x="145" y="32" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">AWS Secrets Manager</text></g>
+  <g transform="translate(355, 545)"><rect x="0" y="0" width="260" height="60" rx="6" fill="#1f2937" stroke="#f59e0b" stroke-width="1.5"/><text x="130" y="35" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">External Secrets Operator</text></g>
+  <g transform="translate(355, 640)"><rect x="0" y="0" width="260" height="150" rx="6" fill="#1f2937" stroke="#f59e0b" stroke-width="2"/><text x="130" y="28" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="800">Kubernetes Secret</text><text x="130" y="58" text-anchor="middle" fill="#9ca3af" font-size="11">DB_URL</text><text x="130" y="88" text-anchor="middle" fill="#9ca3af" font-size="11">DB_USERNAME</text><text x="130" y="118" text-anchor="middle" fill="#9ca3af" font-size="11">DB_PASSWORD</text></g>
+
+  <!-- EKS CLUSTER -->
+  <rect x="670" y="400" width="820" height="420" rx="12" fill="#150a21" stroke="#a855f7" stroke-width="2" filter="url(#glow-purple)"/>
+  <use href="#icon-k8s" x="690" y="415" transform="scale(1.2)"/>
+  <text x="1000" y="428" text-anchor="middle" fill="#c084fc" font-size="15" font-weight="800">AMAZON EKS CLUSTER</text>
+
+  <!-- Namespace Badge -->
+  <g transform="translate(1270, 413)">
+    <rect x="0" y="0" width="200" height="24" rx="4" fill="#3b0764" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="100" y="16" text-anchor="middle" fill="#c084fc" font-size="11" font-weight="800">Namespace: student-app</text>
   </g>
 
-  <g transform="translate(620, 185)">
-    <rect x="0" y="0" width="250" height="80" rx="6" fill="#064e3b" stroke="#00ff87" stroke-width="2"/>
-    <use href="#icon-cloudfront" x="15" y="15" transform="scale(1.2)"/>
-    <text x="145" y="38" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Amazon CloudFront</text>
-    <text x="145" y="56" text-anchor="middle" fill="#a7f3d0" font-size="10">CDN Cache</text>
-  </g>
+  <!-- Inner Namespace Box -->
+  <rect x="695" y="445" width="770" height="355" rx="8" fill="#111827" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="6,4"/>
 
-  <g transform="translate(930, 185)">
-    <rect x="0" y="0" width="240" height="80" rx="6" fill="#1f2937" stroke="#00ff87" stroke-width="1.5"/>
-    <use href="#icon-s3" x="15" y="15" transform="scale(1.2)"/>
-    <text x="140" y="38" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Amazon S3 Bucket</text>
-    <text x="140" y="56" text-anchor="middle" fill="#9ca3af" font-size="10">Static Hosting</text>
-  </g>
+  <g transform="translate(725, 480)"><rect x="0" y="0" width="200" height="50" rx="6" fill="#3b0764" stroke="#a855f7" stroke-width="1.5"/><text x="100" y="30" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Backend Service</text></g>
+  <g transform="translate(965, 480)"><rect x="0" y="0" width="200" height="50" rx="6" fill="#3b0764" stroke="#a855f7" stroke-width="1.5"/><text x="100" y="30" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Backend Deployment</text></g>
 
-  <g transform="translate(1230, 185)">
-    <rect x="0" y="0" width="250" height="80" rx="6" fill="#1f2937" stroke="#00ff87" stroke-width="2"/>
-    <text x="125" y="38" text-anchor="middle" fill="#00ff87" font-size="14" font-weight="800">Frontend Application</text>
-    <text x="125" y="56" text-anchor="middle" fill="#d1d5db" font-size="10">React Static Bundle</text>
-  </g>
+  <g transform="translate(725, 590)"><rect x="0" y="0" width="200" height="65" rx="6" fill="#1f2937" stroke="#00f2fe" stroke-width="2"/><text x="100" y="34" text-anchor="middle" fill="#00f2fe" font-size="13" font-weight="800">Backend Pod 1</text></g>
+  <g transform="translate(965, 590)"><rect x="0" y="0" width="200" height="65" rx="6" fill="#1f2937" stroke="#00f2fe" stroke-width="2"/><text x="100" y="34" text-anchor="middle" fill="#00f2fe" font-size="13" font-weight="800">Backend Pod 2</text></g>
 
+  <g transform="translate(1220, 480)"><rect x="0" y="0" width="210" height="50" rx="6" fill="#1f2937" stroke="#ec4899" stroke-width="2" filter="url(#glow-pink)"/><text x="105" y="30" text-anchor="middle" fill="#ec4899" font-size="13" font-weight="800">HPA Controller</text></g>
+  
+  <g transform="translate(1220, 680)"><rect x="0" y="0" width="210" height="65" rx="6" fill="#1f2937" stroke="#f59e0b" stroke-width="2"/><text x="105" y="38" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="800">Reloader</text></g>
 
-  <!-- LAYER 2: LOAD BALANCING LAYER -->
-  <rect x="300" y="310" width="1550" height="100" rx="10" fill="#111827" stroke="#00f2fe" stroke-width="1.5" filter="url(#glow-cyan)"/>
-  <text x="325" y="338" fill="#00f2fe" font-size="13" font-weight="800">LOAD BALANCING LAYER</text>
+  <!-- OBSERVABILITY TIER -->
+  <rect x="1520" y="400" width="330" height="420" rx="10" fill="#111827" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="1685" y="425" text-anchor="middle" fill="#f472b6" font-size="13" font-weight="800">OBSERVABILITY TIER</text>
+  <g transform="translate(1545, 465)"><rect x="0" y="0" width="280" height="85" rx="6" fill="#1f2937" stroke="#ec4899" stroke-width="1.5"/><use href="#icon-monitor" x="15" y="18" transform="scale(1.2)"/><text x="155" y="40" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">Prometheus</text><text x="155" y="60" text-anchor="middle" fill="#9ca3af" font-size="10">Metrics Scraper</text></g>
+  <g transform="translate(1545, 600)"><rect x="0" y="0" width="280" height="110" rx="6" fill="#1f2937" stroke="#ec4899" stroke-width="2"/><use href="#icon-monitor" x="15" y="25" transform="scale(1.2)"/><text x="155" y="42" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">Grafana Dashboard</text><rect x="35" y="58" width="240" height="30" rx="4" fill="#111827" stroke="#ec4899" stroke-width="1"/><text x="155" y="78" text-anchor="middle" fill="#ec4899" font-size="11" font-weight="800">grafana.prafulgadbail.online</text></g>
 
-  <g transform="translate(540, 335)">
-    <rect x="0" y="0" width="450" height="55" rx="6" fill="#1f2937" stroke="#00f2fe" stroke-width="2"/>
-    <text x="225" y="26" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">Internet-Facing Application Load Balancer</text>
-    <text x="225" y="44" text-anchor="middle" fill="#00f2fe" font-size="11" font-weight="600">HTTPS (443) / AWS Certificate Manager (ACM)</text>
-  </g>
+  <!-- DATABASE TIER -->
+  <rect x="1100" y="845" width="750" height="90" rx="10" fill="#111827" stroke="#f59e0b" stroke-width="2" filter="url(#glow-amber)"/>
+  <text x="1125" y="865" fill="#f59e0b" font-size="12" font-weight="800">DATABASE TIER</text>
+  <g transform="translate(1250, 860)"><rect x="0" y="0" width="460" height="60" rx="6" fill="#1f2937" stroke="#f59e0b" stroke-width="2"/><use href="#icon-rds" x="20" y="10" transform="scale(1.2)"/><text x="245" y="35" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="800">Amazon RDS MariaDB</text></g>
 
+  <!-- SUPPORTING PLATFORM COMPONENTS -->
+  <rect x="330" y="955" width="1520" height="70" rx="8" fill="#111827" stroke="#374151" stroke-width="1.5"/>
+  <text x="355" y="975" fill="#9ca3af" font-size="11" font-weight="800">EKS SUPPORTING PLATFORM COMPONENTS</text>
+  <g transform="translate(355, 982)"><rect x="0" y="0" width="220" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/><text x="110" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11">AWS Load Balancer Controller</text></g>
+  <g transform="translate(605, 982)"><rect x="0" y="0" width="200" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/><text x="100" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11">Metrics Server</text></g>
+  <g transform="translate(835, 982)"><rect x="0" y="0" width="220" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/><text x="110" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11">Cluster Autoscaler</text></g>
+  <g transform="translate(1085, 982)"><rect x="0" y="0" width="220" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/><text x="110" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11">EBS CSI Driver</text></g>
+  <g transform="translate(1335, 982)"><rect x="0" y="0" width="240" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/><text x="120" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11">External Secrets Operator</text></g>
+  <g transform="translate(1605, 982)"><rect x="0" y="0" width="210" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/><text x="105" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11">Reloader</text></g>
 
-  <!-- LAYER 3: SECRETS LAYER (LEFT GRID) -->
-  <rect x="300" y="430" width="310" height="380" rx="10" fill="#111827" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="455" y="460" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="800">SECRETS LAYER</text>
+  <!-- ================= ACCURATE PIPELINE PATHS ================= -->
 
-  <g transform="translate(325, 480)">
-    <rect x="0" y="0" width="260" height="70" rx="6" fill="#1f2937" stroke="#f59e0b" stroke-width="1.5"/>
-    <use href="#icon-secrets" x="12" y="12" transform="scale(1.2)"/>
-    <text x="145" y="30" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">AWS Secrets Manager</text>
-    <text x="145" y="50" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="600">mariadb-secret</text>
-  </g>
+  <!-- User -> R53 -> CloudFront -->
+  <path id="path-user-r53" d="M 260 205 L 370 205" stroke="#00ff87" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path id="path-r53-cf" d="M 600 210 L 670 210" stroke="#00ff87" stroke-width="2" marker-end="url(#arrow-green)"/>
 
-  <g transform="translate(325, 575)">
-    <rect x="0" y="0" width="260" height="55" rx="6" fill="#1f2937" stroke="#f59e0b" stroke-width="1.5"/>
-    <text x="130" y="32" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">External Secrets Operator</text>
-  </g>
+  <!-- CloudFront Behaviors -->
+  <path id="path-cf-s3" d="M 970 210 L 1040 210" stroke="#00ff87" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path id="path-s3-app" d="M 1280 210 L 1350 210" stroke="#00ff87" stroke-width="2" marker-end="url(#arrow-green)"/>
+  
+  <!-- CloudFront to ALB -->
+  <path id="path-cf-alb" d="M 820 245 L 820 318" stroke="#00f2fe" stroke-width="2.5" fill="none" marker-end="url(#arrow-cyan)"/>
 
-  <g transform="translate(325, 655)">
-    <rect x="0" y="0" width="260" height="130" rx="6" fill="#1f2937" stroke="#f59e0b" stroke-width="2"/>
-    <text x="130" y="28" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="800">Kubernetes Secret</text>
-    <text x="130" y="54" text-anchor="middle" fill="#9ca3af" font-size="11">DB_URL</text>
-    <text x="130" y="78" text-anchor="middle" fill="#9ca3af" font-size="11">DB_USERNAME</text>
-    <text x="130" y="102" text-anchor="middle" fill="#9ca3af" font-size="11">DB_PASSWORD</text>
-  </g>
+  <!-- ALB to Backend Service -> Backend Deployment -->
+  <path id="path-alb-svc" d="M 825 364 L 825 480" stroke="#a855f7" stroke-width="2.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <path id="path-svc-dep" d="M 925 505 L 965 505" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
 
+  <!-- Backend Deployment to Pod 1 & Pod 2 Flow -->
+  <path id="path-dep-pod1" d="M 1010 530 L 1010 560 L 825 560 L 825 590" stroke="#a855f7" stroke-width="2" fill="none" marker-end="url(#arrow-purple)"/>
+  <path id="path-dep-pod2" d="M 1065 530 L 1065 590" stroke="#a855f7" stroke-width="2" fill="none" marker-end="url(#arrow-purple)"/>
 
-  <!-- LAYER 4: EKS CLUSTER BOUNDARY (CENTER GRID) -->
-  <rect x="640" y="430" width="850" height="380" rx="12" fill="#150a21" stroke="#a855f7" stroke-width="2" filter="url(#glow-purple)"/>
-  <use href="#icon-k8s" x="660" y="445" transform="scale(1.2)"/>
-  <text x="1065" y="465" text-anchor="middle" fill="#c084fc" font-size="15" font-weight="800" letter-spacing="1">AMAZON EKS CLUSTER</text>
+  <!-- Pod 1 & Pod 2 to RDS Database -->
+  <path id="path-pod1-rds" d="M 825 655 L 825 885 L 1250 885" stroke="#f59e0b" stroke-width="2.5" fill="none" marker-end="url(#arrow-amber)"/>
+  <path id="path-pod2-rds" d="M 1065 655 L 1065 885 L 1250 885" stroke="#f59e0b" stroke-width="2.5" fill="none" marker-end="url(#arrow-amber)"/>
 
-  <!-- Namespace: student-app -->
-  <rect x="665" y="485" width="800" height="305" rx="8" fill="#111827" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="6,4"/>
-  <text x="685" y="508" fill="#a855f7" font-size="12" font-weight="800">Namespace: student-app</text>
+  <!-- SECRETS MANAGEMENT FLOW -->
+  <!-- 1. AWS Secrets Manager -> ESO -->
+  <path id="path-sec-eso" d="M 485 515 L 485 545" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow-amber)"/>
+  
+  <!-- 2. ESO -> K8s Secret -->
+  <path id="path-eso-k8ssec" d="M 485 605 L 485 640" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow-amber)"/>
 
-  <g transform="translate(695, 525)">
-    <rect x="0" y="0" width="220" height="55" rx="6" fill="#3b0764" stroke="#a855f7" stroke-width="1.5"/>
-    <text x="110" y="32" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Backend Service</text>
-  </g>
+  <!-- 3. K8s Secret -> Reloader -->
+  <path id="path-k8ssec-reloader" d="M 615 715 L 1220 715" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4" fill="none" marker-end="url(#arrow-amber)"/>
 
-  <g transform="translate(955, 525)">
-    <rect x="0" y="0" width="220" height="55" rx="6" fill="#3b0764" stroke="#a855f7" stroke-width="1.5"/>
-    <text x="110" y="32" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Backend Deployment</text>
-  </g>
+  <!-- 4. Reloader -> Backend Deployment -->
+  <path id="path-reloader-dep" d="M 1325 680 L 1325 560 L 1165 560 L 1165 530" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="4" fill="none" marker-end="url(#arrow-amber)"/>
 
-  <g transform="translate(695, 610)">
-    <rect x="0" y="0" width="220" height="70" rx="6" fill="#1f2937" stroke="#00f2fe" stroke-width="2"/>
-    <text x="110" y="34" text-anchor="middle" fill="#00f2fe" font-size="13" font-weight="800">Backend Pod 1</text>
-    <text x="110" y="52" text-anchor="middle" fill="#9ca3af" font-size="10">Replica 1</text>
-  </g>
+  <!-- HPA to Deployment -->
+  <path id="path-hpa-dep" d="M 1220 505 L 1165 505" stroke="#ec4899" stroke-width="2" marker-end="url(#arrow-pink)"/>
 
-  <g transform="translate(955, 610)">
-    <rect x="0" y="0" width="220" height="70" rx="6" fill="#1f2937" stroke="#00f2fe" stroke-width="2"/>
-    <text x="110" y="34" text-anchor="middle" fill="#00f2fe" font-size="13" font-weight="800">Backend Pod 2</text>
-    <text x="110" y="52" text-anchor="middle" fill="#9ca3af" font-size="10">Replica 2</text>
-  </g>
+  <!-- MONITORING FLOW -->
+  <path id="path-svc-prom" d="M 825 480 L 825 460 L 1545 460 L 1545 480" stroke="#ec4899" stroke-width="2" stroke-dasharray="4" fill="none" marker-end="url(#arrow-pink)"/>
+  <path id="path-prom-graf" d="M 1685 550 L 1685 600" stroke="#ec4899" stroke-width="2" marker-end="url(#arrow-pink)"/>
 
-  <!-- HPA -->
-  <g transform="translate(1215, 610)">
-    <rect x="0" y="0" width="220" height="70" rx="6" fill="#1f2937" stroke="#ec4899" stroke-width="2" filter="url(#glow-pink)"/>
-    <text x="110" y="34" text-anchor="middle" fill="#ec4899" font-size="14" font-weight="800">HPA</text>
-    <text x="110" y="52" text-anchor="middle" fill="#9ca3af" font-size="10">Pod Autoscaler</text>
-  </g>
+  <!-- ================= ANIMATED FLOW DOTS ================= -->
+  <circle r="3.5" fill="#00ff87" filter="url(#glow-green)"><animateMotion dur="1.2s" repeatCount="indefinite" path="M 260 205 L 370 205"/></circle>
+  <circle r="3.5" fill="#00ff87" filter="url(#glow-green)"><animateMotion dur="1.0s" repeatCount="indefinite" path="M 600 210 L 670 210"/></circle>
+  <circle r="4" fill="#00f2fe" filter="url(#glow-cyan)"><animateMotion dur="1.2s" repeatCount="indefinite" path="M 820 245 L 820 318"/></circle>
+  <circle r="4" fill="#a855f7" filter="url(#glow-purple)"><animateMotion dur="1.4s" repeatCount="indefinite" path="M 825 364 L 825 480"/></circle>
+  
+  <!-- Deployment to Pod 1 & 2 Animations -->
+  <circle r="3.5" fill="#a855f7" filter="url(#glow-purple)"><animateMotion dur="1.5s" repeatCount="indefinite" path="M 1010 530 L 1010 560 L 825 560 L 825 590"/></circle>
+  <circle r="3.5" fill="#a855f7" filter="url(#glow-purple)"><animateMotion dur="1.2s" repeatCount="indefinite" path="M 1065 530 L 1065 590"/></circle>
 
-  <!-- Reloader -->
-  <g transform="translate(695, 715)">
-    <rect x="0" y="0" width="480" height="50" rx="6" fill="#1f2937" stroke="#f59e0b" stroke-width="1.5"/>
-    <text x="240" y="24" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="700">Reloader</text>
-    <text x="240" y="40" text-anchor="middle" fill="#9ca3af" font-size="10">Triggers Pod Restart on Secret Updates</text>
-  </g>
+  <!-- Secrets Sync Animation -->
+  <circle r="3.5" fill="#f59e0b" filter="url(#glow-amber)"><animateMotion dur="1.5s" repeatCount="indefinite" path="M 485 515 L 485 545"/></circle>
+  <circle r="3.5" fill="#f59e0b" filter="url(#glow-amber)"><animateMotion dur="1.5s" repeatCount="indefinite" path="M 485 605 L 485 640"/></circle>
+  <circle r="3.5" fill="#f59e0b" filter="url(#glow-amber)"><animateMotion dur="2.2s" repeatCount="indefinite" path="M 615 715 L 1220 715"/></circle>
+  <circle r="3.5" fill="#f59e0b" filter="url(#glow-amber)"><animateMotion dur="2.0s" repeatCount="indefinite" path="M 1325 680 L 1325 560 L 1165 560 L 1165 530"/></circle>
 
+  <!-- DB Connection Animations -->
+  <circle r="4" fill="#f59e0b" filter="url(#glow-amber)"><animateMotion dur="2.0s" repeatCount="indefinite" path="M 825 655 L 825 885 L 1250 885"/></circle>
+  <circle r="4" fill="#f59e0b" filter="url(#glow-amber)"><animateMotion dur="2.2s" repeatCount="indefinite" path="M 1065 655 L 1065 885 L 1250 885"/></circle>
 
-  <!-- LAYER 5: OBSERVABILITY LAYER (RIGHT GRID) -->
-  <rect x="1520" y="430" width="330" height="380" rx="10" fill="#111827" stroke="#ec4899" stroke-width="1.5"/>
-  <text x="1685" y="460" text-anchor="middle" fill="#f472b6" font-size="13" font-weight="800">OBSERVABILITY TIER</text>
-
-  <g transform="translate(1545, 495)">
-    <rect x="0" y="0" width="280" height="85" rx="6" fill="#1f2937" stroke="#ec4899" stroke-width="1.5"/>
-    <use href="#icon-monitor" x="15" y="15" transform="scale(1.2)"/>
-    <text x="155" y="40" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">Prometheus</text>
-    <text x="155" y="60" text-anchor="middle" fill="#9ca3af" font-size="10">Metrics Scraper</text>
-  </g>
-
-  <g transform="translate(1545, 630)">
-    <rect x="0" y="0" width="280" height="110" rx="6" fill="#1f2937" stroke="#ec4899" stroke-width="2"/>
-    <text x="140" y="45" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">Grafana Dashboards</text>
-    <text x="140" y="70" text-anchor="middle" fill="#ec4899" font-size="12" font-weight="800">grafana.prafulgadbail.online</text>
-  </g>
-
-
-  <!-- LAYER 6: DATABASE LAYER -->
-  <rect x="1100" y="830" width="750" height="100" rx="10" fill="#111827" stroke="#f59e0b" stroke-width="2" filter="url(#glow-amber)"/>
-  <text x="1125" y="855" fill="#f59e0b" font-size="13" font-weight="800">DATABASE TIER (External to EKS)</text>
-
-  <g transform="translate(1250, 855)">
-    <rect x="0" y="0" width="460" height="60" rx="6" fill="#1f2937" stroke="#f59e0b" stroke-width="2"/>
-    <use href="#icon-rds" x="20" y="10" transform="scale(1.2)"/>
-    <text x="245" y="30" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="800">Amazon RDS MariaDB</text>
-    <text x="245" y="48" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">Managed Database Instance</text>
-  </g>
-
-
-  <!-- EKS SUPPORTING COMPONENTS -->
-  <rect x="300" y="955" width="1550" height="70" rx="8" fill="#111827" stroke="#374151" stroke-width="1.5"/>
-  <text x="325" y="975" fill="#9ca3af" font-size="11" font-weight="800">EKS SUPPORTING PLATFORM COMPONENTS</text>
-
-  <g transform="translate(325, 982)">
-    <rect x="0" y="0" width="220" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/>
-    <text x="110" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">AWS Load Balancer Controller</text>
-  </g>
-  <g transform="translate(585, 982)">
-    <rect x="0" y="0" width="200" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/>
-    <text x="100" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">Metrics Server</text>
-  </g>
-  <g transform="translate(815, 982)">
-    <rect x="0" y="0" width="220" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/>
-    <text x="110" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">Cluster Autoscaler</text>
-  </g>
-  <g transform="translate(1065, 982)">
-    <rect x="0" y="0" width="220" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/>
-    <text x="110" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">EBS CSI Driver</text>
-  </g>
-  <g transform="translate(1315, 982)">
-    <rect x="0" y="0" width="250" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/>
-    <text x="125" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">External Secrets Operator</text>
-  </g>
-  <g transform="translate(1595, 982)">
-    <rect x="0" y="0" width="230" height="32" rx="4" fill="#1f2937" stroke="#4b5563"/>
-    <text x="115" y="20" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">Reloader</text>
-  </g>
-
-
-  <!-- ================= CLEAR NON-OVERLAPPING PIPELINE PATHS ================= -->
-
-  <!-- 1. FRONTEND APP TRAFFIC (Green Channel - Top) -->
-  <path d="M 220 200 L 340 200" stroke="#00ff87" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <path d="M 560 225 L 620 225" stroke="#00ff87" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <path d="M 870 225 L 930 225" stroke="#00ff87" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <path d="M 1170 225 L 1230 225" stroke="#00ff87" stroke-width="2" marker-end="url(#arrow-green)"/>
-
-  <!-- 2. API REQUEST TO ALB (Cyan Channel - Middle Left) -->
-  <path d="M 220 362 L 540 362" stroke="#00f2fe" stroke-width="2.5" marker-end="url(#arrow-cyan)"/>
-
-  <!-- 3. ALB TO EKS SERVICE (Purple Channel) -->
-  <path d="M 765 390 L 765 525" stroke="#a855f7" stroke-width="2.5" fill="none" marker-end="url(#arrow-purple)"/>
-
-  <!-- 4. SERVICE TO DEPLOYMENT TO PODS -->
-  <path d="M 915 552 L 955 552" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
-  <!-- Pod 1 Path -->
-  <path d="M 1065 580 L 1065 595 L 805 595 L 805 610" stroke="#a855f7" stroke-width="2" fill="none" marker-end="url(#arrow-purple)"/>
-  <!-- Pod 2 Path -->
-  <path d="M 1065 580 L 1065 610" stroke="#a855f7" stroke-width="2" marker-end="url(#arrow-purple)"/>
-
-  <!-- 5. PODS TO DATABASE (Amber Channel - Distinct Parallel Routes) -->
-  <path d="M 805 680 L 805 885 L 1250 885" stroke="#f59e0b" stroke-width="2.5" fill="none" marker-end="url(#arrow-amber)"/>
-  <path d="M 1065 680 L 1065 900 L 1250 900" stroke="#f59e0b" stroke-width="2.5" fill="none" marker-end="url(#arrow-amber)"/>
-
-  <!-- 6. SECRETS SYNC FLOW (Amber Vertical Channel) -->
-  <path d="M 455 550 L 455 575" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow-amber)"/>
-  <path d="M 455 630 L 455 655" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow-amber)"/>
-  <path d="M 585 720 L 695 645" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow-amber)"/>
-
-  <!-- 7. RELOADER DISCOVERY -->
-  <path d="M 935 715 L 935 680" stroke="#fbbf24" stroke-dasharray="3,3" stroke-width="1.5"/>
-
-  <!-- 8. HPA FLOW (Pink Channel) -->
-  <path d="M 1215 645 L 1175 645" stroke="#ec4899" stroke-width="2" marker-end="url(#arrow-pink)"/>
-
-  <!-- 9. OBSERVABILITY FLOW (Pink Side Channel) -->
-  <path d="M 1490 537 L 1545 537" stroke="#ec4899" stroke-width="2" marker-end="url(#arrow-pink)"/>
-  <path d="M 1685 580 L 1685 630" stroke="#ec4899" stroke-width="2" marker-end="url(#arrow-pink)"/>
-
-
-  <!-- ================= ANIMATED GLOWING DOTS ================= -->
-  <circle r="3.5" fill="#00ff87" filter="url(#glow-green)">
-    <animateMotion dur="1.3s" repeatCount="indefinite" path="M 220 200 L 340 200"/>
-  </circle>
-  <circle r="3.5" fill="#00ff87" filter="url(#glow-green)">
-    <animateMotion dur="1.3s" repeatCount="indefinite" path="M 560 225 L 620 225"/>
-  </circle>
-
-  <circle r="4" fill="#00f2fe" filter="url(#glow-cyan)">
-    <animateMotion dur="1.6s" repeatCount="indefinite" path="M 220 362 L 540 362"/>
-  </circle>
-
-  <circle r="4" fill="#a855f7" filter="url(#glow-purple)">
-    <animateMotion dur="1.5s" repeatCount="indefinite" path="M 765 390 L 765 525"/>
-  </circle>
-
-  <circle r="4" fill="#f59e0b" filter="url(#glow-amber)">
-    <animateMotion dur="2s" repeatCount="indefinite" path="M 805 680 L 805 885 L 1250 885"/>
-  </circle>
-  <circle r="4" fill="#f59e0b" filter="url(#glow-amber)">
-    <animateMotion dur="2.2s" repeatCount="indefinite" path="M 1065 680 L 1065 900 L 1250 900"/>
-  </circle>
-
-  <circle r="3.5" fill="#ec4899" filter="url(#glow-pink)">
-    <animateMotion dur="1.4s" repeatCount="indefinite" path="M 1490 537 L 1545 537"/>
-  </circle>
-  <circle r="3.5" fill="#ec4899" filter="url(#glow-pink)">
-    <animateMotion dur="1.4s" repeatCount="indefinite" path="M 1685 580 L 1685 630"/>
-  </circle>
+  <!-- Monitoring Scrape Animation -->
+  <circle r="3.5" fill="#ec4899" filter="url(#glow-pink)"><animateMotion dur="2.0s" repeatCount="indefinite" path="M 825 480 L 825 460 L 1545 460 L 1545 480"/></circle>
+  <circle r="3.5" fill="#ec4899" filter="url(#glow-pink)"><animateMotion dur="1.2s" repeatCount="indefinite" path="M 1685 550 L 1685 600"/></circle>
 </svg>
