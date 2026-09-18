@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: student-app-ingress
+  namespace: student-app
+
+  # Configure AWS Application Load Balancer
+  annotations:
+    # Share this ALB with other Ingress resources
+    alb.ingress.kubernetes.io/group.name: shared-alb
+    
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+
+    # ACM certificate for HTTPS
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:261945560801:certificate/bc824625-cedb-412d-8a52-a654f3e830dc
+
+    # Listen on HTTP and HTTPS
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+
+    # Redirect HTTP traffic to HTTPS
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+
+spec:
+  ingressClassName: alb
+
+  rules:
+    - host: student-app.prafulgadbail.online
+      http:
+        paths:
+
+          # Route API traffic to the backend service
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 8080

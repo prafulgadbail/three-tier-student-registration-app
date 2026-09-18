@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: student-app
+
+  # Reloader restarts pods automatically when the Secret changes
+  annotations:
+    reloader.stakater.com/auto: "true"
+
+spec:
+  replicas: 2
+
+  # Rolling update keeps the application available during deployment
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+
+  selector:
+    matchLabels:
+      app: backend
+
+  template:
+    metadata:
+      labels:
+        app: backend
+
+    spec:
+      containers:
+        - name: backend
+
+          # Jenkins updates this image during deployment
+          image: backend
+
+          ports:
+            - containerPort: 8080
+
+          # Load database configuration from Kubernetes Secret
+          env:
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: DB_URL
+
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: DB_USERNAME
+
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: DB_PASSWORD
+
+          # Check whether the application is ready to receive traffic
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+
+          # Check whether the application is alive
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 3
+            failureThreshold: 3
+
+          # Resource requests and limits for the backend container
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: student-app
+
+spec:
+  type: ClusterIP
+
+  selector:
+    app: backend
+
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
