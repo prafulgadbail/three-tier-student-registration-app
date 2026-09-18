@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="100%" height="100%" style="background:#0a0e1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <!-- Dark Neon Glow Filters -->
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Arrow Markers -->
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="600" y="35" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" letter-spacing="1">Three-Tier Student Registration Application — CI/CD Pipeline Flow</text>
+
+  <!-- SECTION BOXES -->
+  <!-- 1. Dev / Source Control -->
+  <rect x="20" y="60" width="220" height="150" rx="10" fill="#111827" stroke="#00f2fe" stroke-width="1.5" filter="url(#glow-cyan)"/>
+  <text x="130" y="85" text-anchor="middle" fill="#00f2fe" font-size="12" font-weight="600">Developer / Source Control</text>
+
+  <!-- 2. Jenkins CI/CD -->
+  <rect x="270" y="60" width="260" height="150" rx="10" fill="#111827" stroke="#00f2fe" stroke-width="1.5" filter="url(#glow-cyan)"/>
+  <text x="400" y="85" text-anchor="middle" fill="#00f2fe" font-size="12" font-weight="600">Jenkins Automation Server</text>
+
+  <!-- 3. Frontend Pipeline (ISOLATED FE ONLY) -->
+  <rect x="20" y="240" width="510" height="360" rx="10" fill="#111827" stroke="#00ff87" stroke-width="1.5" filter="url(#glow-green)"/>
+  <text x="275" y="265" text-anchor="middle" fill="#00ff87" font-size="14" font-weight="700">FRONTEND PIPELINE (S3 + CloudFront)</text>
+
+  <!-- 4. Backend Pipeline (ISOLATED BE ONLY) -->
+  <rect x="560" y="60" width="620" height="540" rx="10" fill="#111827" stroke="#a855f7" stroke-width="1.5" filter="url(#glow-purple)"/>
+  <text x="870" y="85" text-anchor="middle" fill="#b066ff" font-size="14" font-weight="700">BACKEND PIPELINE (Docker + ECR + EKS)</text>
+
+  <!-- PATH DEFINITIONS (Drawn BEFORE text badges so lines stay BEHIND) -->
+  <path id="path-dev-github" d="M 120 140 L 140 140" stroke="#374151" stroke-width="2"/>
+  <path id="path-github-jenkins" d="M 220 140 L 290 140" stroke="#00f2fe" stroke-width="2"/>
+  <path id="path-jenkins-agent" d="M 390 140 L 410 140" stroke="#00f2fe" stroke-width="2"/>
+
+  <!-- CLEAN AGENT TO FRONTEND ROUTE -->
+  <path id="path-agent-fe" d="M 460 170 L 460 220 L 140 220 L 140 300" fill="none" stroke="#00ff87" stroke-width="2"/>
+  <path id="path-agent-be" d="M 510 140 L 580 145" fill="none" stroke="#a855f7" stroke-width="2"/>
+
+  <!-- FRONTEND PIPELINE FLOW PATHS -->
+  <path id="path-fe1-fe2" d="M 140 360 L 140 400" stroke="#00ff87" stroke-width="2"/>
+  <path id="path-fe2-fe3" d="M 140 460 L 140 500" stroke="#00ff87" stroke-width="2"/>
+  <path id="path-fe2-s3" d="M 230 430 L 310 430" stroke="#f59e0b" stroke-width="2"/>
+  
+  <!-- S3 TO CLOUDFRONT CLEAR DIRECTION (Top-To-Bottom) -->
+  <path id="path-s3-cf" d="M 400 460 L 400 494" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <path id="path-fe3-cf" d="M 230 530 L 310 530" stroke="#f59e0b" stroke-width="2"/>
+
+  <!-- BACKEND FLOW PATHS -->
+  <path id="path-be1-be2" d="M 690 170 L 690 190" stroke="#a855f7" stroke-width="2"/>
+  <path id="path-be2-be3" d="M 690 240 L 690 260" stroke="#a855f7" stroke-width="2"/>
+  <path id="path-be3-be4" d="M 690 310 L 690 330" stroke="#a855f7" stroke-width="2"/>
+  <path id="path-be4-be5" d="M 690 380 L 690 410" stroke="#a855f7" stroke-width="2"/>
+  <path id="path-be5-be6" d="M 690 460 L 690 490" stroke="#a855f7" stroke-width="2"/>
+  <path id="path-be4-ecr" d="M 800 355 L 920 355" stroke="#f59e0b" stroke-width="2"/>
+  <path id="path-be5-eks" d="M 800 435 L 920 435" stroke="#f59e0b" stroke-width="2"/>
+
+  <!-- NODES & BLOCKS -->
+  <!-- Source Nodes -->
+  <rect x="40" y="110" width="80" height="60" rx="6" fill="#1f2937" stroke="#374151"/>
+  <text x="80" y="145" text-anchor="middle" fill="#fff" font-size="11">Developer</text>
+
+  <rect x="140" y="110" width="80" height="60" rx="6" fill="#1f2937" stroke="#374151"/>
+  <text x="180" y="145" text-anchor="middle" fill="#fff" font-size="11">GitHub</text>
+
+  <rect x="290" y="110" width="100" height="60" rx="6" fill="#1f2937" stroke="#374151"/>
+  <text x="340" y="137" text-anchor="middle" fill="#fff" font-size="11">Jenkins</text>
+  <text x="340" y="152" text-anchor="middle" fill="#9ca3af" font-size="9">Controller</text>
+
+  <rect x="410" y="110" width="100" height="60" rx="6" fill="#1f2937" stroke="#00f2fe"/>
+  <text x="460" y="137" text-anchor="middle" fill="#fff" font-size="11">Jenkins</text>
+  <text x="460" y="152" text-anchor="middle" fill="#00f2fe" font-size="9">Agent</text>
+
+  <!-- GITHUB WEBHOOK BADGE (Layered OVER the line so line doesn't hide it) -->
+  <rect x="215" y="125" width="80" height="30" rx="4" fill="#0a0e1a" stroke="#00f2fe" stroke-width="1.5" />
+  <text x="255" y="144" text-anchor="middle" fill="#00f2fe" font-size="9" font-weight="700" filter="url(#glow-cyan)">GitHub Webhook</text>
+
+  <!-- Frontend Pipeline Nodes -->
+  <rect x="50" y="300" width="180" height="60" rx="6" fill="#064e3b" stroke="#00ff87"/>
+  <text x="140" y="325" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">1. Build</text>
+  <text x="140" y="342" text-anchor="middle" fill="#a7f3d0" font-size="9">npm ci &amp; npm run build</text>
+
+  <rect x="50" y="400" width="180" height="60" rx="6" fill="#064e3b" stroke="#00ff87"/>
+  <text x="140" y="425" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">2. Deploy to S3</text>
+  <text x="140" y="442" text-anchor="middle" fill="#a7f3d0" font-size="9">sync dist/ to S3 bucket</text>
+
+  <rect x="50" y="500" width="180" height="60" rx="6" fill="#064e3b" stroke="#00ff87"/>
+  <text x="140" y="525" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">3. CloudFront Invalidation</text>
+  <text x="140" y="542" text-anchor="middle" fill="#a7f3d0" font-size="9">Clear Distribution Cache</text>
+
+  <!-- AWS FE Targets -->
+  <rect x="310" y="400" width="180" height="60" rx="6" fill="#1f2937" stroke="#f59e0b"/>
+  <text x="400" y="435" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">AWS S3 Bucket</text>
+
+  <rect x="310" y="500" width="180" height="60" rx="6" fill="#1f2937" stroke="#f59e0b"/>
+  <text x="400" y="535" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">AWS CloudFront CDN</text>
+
+  <!-- Backend Pipeline Nodes -->
+  <rect x="580" y="120" width="220" height="50" rx="6" fill="#3b0764" stroke="#a855f7"/>
+  <text x="690" y="142" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">1. Maven Build</text>
+  <text x="690" y="157" text-anchor="middle" fill="#d8b4fe" font-size="9">mvn clean package -DskipTests</text>
+
+  <rect x="580" y="190" width="220" height="50" rx="6" fill="#3b0764" stroke="#a855f7"/>
+  <text x="690" y="220" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">2. SonarQube Scan</text>
+
+  <rect x="580" y="260" width="220" height="50" rx="6" fill="#3b0764" stroke="#a855f7"/>
+  <text x="690" y="290" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">3. Quality Gate Check</text>
+
+  <rect x="580" y="330" width="220" height="50" rx="6" fill="#3b0764" stroke="#a855f7"/>
+  <text x="690" y="352" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">4. Docker Build &amp; Push</text>
+  <text x="690" y="367" text-anchor="middle" fill="#d8b4fe" font-size="9">student-app/backend</text>
+
+  <rect x="580" y="410" width="220" height="50" rx="6" fill="#3b0764" stroke="#a855f7"/>
+  <text x="690" y="432" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">5. Deploy to EKS</text>
+  <text x="690" y="447" text-anchor="middle" fill="#d8b4fe" font-size="9">Namespace: student-app</text>
+
+  <rect x="580" y="490" width="220" height="50" rx="6" fill="#3b0764" stroke="#a855f7"/>
+  <text x="690" y="520" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">6. Verify Rollout Status</text>
+
+  <!-- AWS / K8s BE Targets -->
+  <rect x="920" y="330" width="220" height="50" rx="6" fill="#1f2937" stroke="#f59e0b"/>
+  <text x="1030" y="360" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">Amazon ECR</text>
+
+  <rect x="920" y="410" width="220" height="50" rx="6" fill="#1f2937" stroke="#f59e0b"/>
+  <text x="1030" y="432" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">Amazon EKS Cluster</text>
+  <text x="1030" y="447" text-anchor="middle" fill="#9ca3af" font-size="9">backend deployment</text>
+
+  <!-- LIVE TRAFFIC ANIMATIONS (animateMotion) -->
+  <!-- Cyan Glow (Trigger Traffic across Webhook) -->
+  <circle r="4" fill="#00f2fe" filter="url(#glow-cyan)">
+    <animateMotion dur="1.5s" repeatCount="indefinite" path="M 220 140 L 290 140"/>
+  </circle>
+
+  <!-- Green Frontend Flow -->
+  <circle r="4" fill="#00ff87" filter="url(#glow-green)">
+    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 460 170 L 460 220 L 140 220 L 140 300"/>
+  </circle>
+  <circle r="3" fill="#00ff87">
+    <animateMotion dur="1.5s" repeatCount="indefinite" path="M 140 360 L 140 400"/>
+  </circle>
+  <circle r="3" fill="#f59e0b">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 230 430 L 310 430"/>
+  </circle>
+  
+  <!-- Clear Top-To-Bottom S3 to CloudFront Traffic Flow -->
+  <circle r="3" fill="#f59e0b" filter="url(#glow-cyan)">
+    <animateMotion dur="1.2s" repeatCount="indefinite" path="M 400 460 L 400 494"/>
+  </circle>
+  <circle r="3" fill="#f59e0b">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 230 530 L 310 530"/>
+  </circle>
+
+  <!-- Purple Backend Flow -->
+  <circle r="4" fill="#a855f7" filter="url(#glow-purple)">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M 510 140 L 580 145"/>
+  </circle>
+  <circle r="3" fill="#a855f7">
+    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 690 170 L 690 490"/>
+  </circle>
+  <circle r="3" fill="#f59e0b">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M 800 355 L 920 355"/>
+  </circle>
+  <circle r="3" fill="#f59e0b">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M 800 435 L 920 435"/>
+  </circle>
+</svg>
