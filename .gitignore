@@ -1,0 +1,23 @@
+# Environment & secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Backend
+backend/target/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
